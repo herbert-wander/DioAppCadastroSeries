@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DioAppCadastroSeries
 {
-    public class SerieRepository : IRepository<Serie>
+    public class CinemaRepository : IRepository<Serie>
     {
         private List<Serie> seriesList = new List<Serie>();
         public void DeleteById(int idP)
         {
-            seriesList[idP].DeleteSerie();
+            seriesList[idP].DeleteCinemaContent();
         }
 
         public Serie GetSerieById(int idP)
@@ -46,6 +46,10 @@ namespace DioAppCadastroSeries
             {
                 Console.WriteLine("Genero: {0}, Opção: {1}",item, (int)Enum.Parse(typeof(Genero),item));
             }
+        }
+        public void RestoreSerie(int idP)
+        {
+            seriesList[idP].RestoreCinemaContent();
         }
     }
 }

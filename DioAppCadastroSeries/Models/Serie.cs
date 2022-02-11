@@ -1,4 +1,5 @@
 ﻿using DioAppCadastroSeries;
+using DioAppCadastroSeries.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,10 @@ using System.Threading.Tasks;
 
 namespace DioAppCadastroSeries
 {
-    public class Serie : BaseEntity
+    public class Serie : Cinema
     {
-        private string titulo;
-        private Genero genero;
-        private string descricao;
-        private int ano;
-        private bool isDeleted;
-
+        private int episodes;
+        private string channelOfExibition;
         public Serie(int idP, string tituloP, Genero generoP, string descricaoP, int anoP)
         {
             this.Id = idP;
@@ -36,44 +33,6 @@ namespace DioAppCadastroSeries
 
             return newToString;
         }
-        public void DeleteSerie()
-        {
-            isDeleted = true;
-        }
-        public void RestoreSerie()
-        {
-            isDeleted = false;
-        }
-        public string Titulo
-        {
-            get => titulo;
-            set => titulo = value;
-        }
-        public Genero Genero
-        {
-            get => genero;
-            set => genero = value;
-        }
-        public string Descricao
-        {
-            get => descricao;
-            set => descricao = value;
-        }
-        public int Ano
-        {
-            get => ano;
-            set
-            {
-                if (Ano > 1900)
-                {
-                    ano = value;
-                }
-
-            }
-        }
-        public int GetSerieId()
-        {
-            return id;
-        }
+        
     }
 }
